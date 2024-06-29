@@ -2,7 +2,10 @@ class ApiResponse {
   Location? location;
   Current? current;
 
-  ApiResponse({this.location, this.current});
+  ApiResponse({
+    this.location,
+    this.current,
+  });
 
   ApiResponse.fromJson(Map<String, dynamic> json) {
     location = json['location'] != null

@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.blue[300],
         body: Container(
           padding: EdgeInsets.all(16),
           child: Column(
@@ -52,7 +52,14 @@ class _HomePageState extends State<HomePage> {
 
   Widget _buildWeatherWidget() {
     if (response == null) {
-      return Text("Search location to get weather data");
+      return Text(
+        "Search location to get weather data",
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+        ),
+      );
     } else {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,43 +70,43 @@ class _HomePageState extends State<HomePage> {
               Icon(
                 Icons.location_on,
                 color: Colors.black,
-                size: 50,
+                size: 40,
               ),
               Text(
                 response?.location?.name ?? "",
                 style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              Text(
-                response?.location?.country ?? "",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400,
+                  fontSize: 30,
                 ),
               ),
             ],
+          ),
+          SizedBox(width: 20),
+          Center(
+            child: Text(
+              response?.location?.country ?? "",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.black,
+              ),
+            ),
           ),
           SizedBox(height: 10),
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(15.0),
                 child: Text(
                   (response?.current?.tempC.toString() ?? "") + "°C",
                   style: TextStyle(
                     fontSize: 60,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
               Text(
                 (response?.current?.condition?.text.toString() ?? ""),
                 style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
+                  fontSize: 24,
                 ),
               ),
             ],
@@ -116,7 +123,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Card(
             elevation: 4,
-            color: Colors.grey[400],
+            color: Colors.grey[300],
             child: Column(
               children: [
                 Row(
